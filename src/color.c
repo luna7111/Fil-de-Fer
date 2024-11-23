@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                    _.._  .           .     */
-/*   draw_line.c                                    .' .-'`        *          */
+/*   color.c                                        .' .-'`        *          */
 /*                                                 /  /       +        *      */
-/*   By: ldel-val <ldel-val@student.42madrid.com>  |  |           *           */
+/*   By: ldel-val <ldel-val@42madrid.com>          |  |           *           */
 /*                                                 \  '.___.;       +         */
-/*   Created: 2024/11/23 12:08:32 by ldel-val       '._  _.'   .        .     */
-/*   Updated: 2024/11/23 20:13:58 by ldel-val          ``                     */
+/*   Created: 2024/11/23 18:10:10 by ldel-val       '._  _.'   .        .     */
+/*   Updated: 2024/11/23 20:18:17 by ldel-val          ``                     */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	draw_line(void *ctx, void *win, int x1, int y1, int x2, int y2, int color)
+int rgbatoi(t_rgba rgba)
 {
-	int i;
-	
-	i = 0;
-	while (i < 100)
-	{
-		mlx_pixel_put(ctx, win, x1 + 1, y1 + i, color);
-		mlx_pixel_put(ctx, win, x2 + 1, y2 + i, color);
-		i++;
-	}
+	int mlx_color;
+
+	mlx_color = rgba.a;
+	mlx_color = mlx_color << 8;
+	mlx_color += rgba.r;
+	mlx_color = mlx_color << 8;
+	mlx_color += rgba.g;
+	mlx_color = mlx_color << 8;
+	mlx_color += rgba.b;
+	return (mlx_color);
 }
