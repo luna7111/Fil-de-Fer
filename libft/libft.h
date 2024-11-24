@@ -6,7 +6,7 @@
 /*   By: ldel-val <ldel-val@student.42madrid.com>  |  |           *           */
 /*                                                 \  '.___.;       +         */
 /*   Created: 2024/10/26 15:49:52 by ldel-val       '._  _.'   .        .     */
-/*   Updated: 2024/11/16 19:22:59 by ldel-val          ``                     */
+/*   Updated: 2024/11/24 12:45:49 by ldel-val          ``                     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,9 @@ int		ft_putptr_fd(void *ptr, int fd);
 char	*get_next_line(int fd);
 ssize_t	ft_read(int fd, char *buffer, size_t count);
 long	ft_find_lbreak(char *string);
+
+void	ft_swap_int(int *v1, int *v2);
+void	ft_swap_float(float *v1, float *v2);
 
 int		ft_print_specifier(char const *format, va_list arguments);
 int		ft_printf(char const *format, ...);

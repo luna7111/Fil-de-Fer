@@ -1,41 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                    _.._  .           .     */
-/*   fdf.h                                          .' .-'`        *          */
+/*   ft_swap.c                                      .' .-'`        *          */
 /*                                                 /  /       +        *      */
 /*   By: ldel-val <ldel-val@student.42madrid.com>  |  |           *           */
 /*                                                 \  '.___.;       +         */
-/*   Created: 2024/11/23 11:35:38 by ldel-val       '._  _.'   .        .     */
-/*   Updated: 2024/11/24 10:25:47 by ldel-val          ``                     */
+/*   Created: 2024/11/24 12:40:37 by ldel-val       '._  _.'   .        .     */
+/*   Updated: 2024/11/24 12:44:39 by ldel-val          ``                     */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H
+#include "../libft.h"
 
-# include "../libft/libft.h"
-# include "../mlx/mlx.h"
-
-void	draw_line(void *ctx, void *win, t_line line, int color);
-
-typedef struct  s_line
+void	ft_swap_int(int *v1, int *v2)
 {
-	int	x1;
-	int y1;
-	int x2;
-	int	y2;
-} t_line;
+	int buffer;
 
-t_line init_line(int x1, int y1, int x2, int y2);
+	if (v1 && v2)
+	{
+		buffer = *v1;
+		*v1 = *v2;
+		*v2 = buffer;
+	}
+}
 
-typedef	struct	s_rbga
+void	ft_swap_float(float *v1, float *v2)
 {
-	int	r;
-	int	g;
-	int	b;
-	int	a;
-} t_rgba;
+	float buffer;
 
-int		rgbatoi(t_rgba rgba);
-
-#endif
+	if (v1 && v2)
+	{
+		buffer = *v1;
+		*v1 = *v2;
+		*v2 = buffer;
+	}
+}
