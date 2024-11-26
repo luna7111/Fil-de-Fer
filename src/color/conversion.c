@@ -6,13 +6,13 @@
 /*   By: ldel-val <ldel-val@42madrid.com>          |  |           *           */
 /*                                                 \  '.___.;       +         */
 /*   Created: 2024/11/25 16:45:42 by ldel-val       '._  _.'   .        .     */
-/*   Updated: 2024/11/26 14:50:02 by ldel-val          ``                     */
+/*   Updated: 2024/11/26 15:53:39 by ldel-val          ``                     */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fdf.h"
 
-int	rgbtoi(t_rgba rgba)
+int	rgbatoi(t_rgba rgba)
 {
 	int color;
 
