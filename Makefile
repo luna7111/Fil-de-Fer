@@ -6,11 +6,13 @@
 #    By: ldel-val <ldel-val@42madrid.com>          |  |           *            #
 #                                                  \  '.___.;       +          #
 #    Created: 2024/11/25 12:45:41 by ldel-val       '._  _.'   .        .      #
-#    Updated: 2024/11/25 19:27:28 by ldel-val          ``                      #
+#    Updated: 2024/11/26 16:31:03 by ldel-val          ``                      #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fdf
+
+SANDBOX_NAME = sandbox
 
 CC = cc
 
@@ -45,6 +47,11 @@ $(NAME): $(OBJ) $(MAIN_OBJ)
 	$(MAKE) -C $(MLX)
 	$(CC) $(CFLAGS) $(MAIN_OBJ) $(OBJ) $(MLX_FLAGS) -o $(NAME)
 
+$(SANDBOX_NAME): $(OBJ) $(SANDBOX_OBJ)
+	$(MAKE) -C $(LIBFT)
+	$(MAKE) -C $(MLX)
+	$(CC) $(CFLAGS) $(SANDBOX_OBJ) $(OBJ) $(MLX_FLAGS) -o $(SANDBOX_NAME)
+
 clean:
 	$(MAKE) -C $(MLX) clean
 	$(MAKE) -C $(LIBFT) clean
@@ -53,7 +60,7 @@ clean:
 fclean:
 	$(MAKE) -C $(MLX) clean
 	$(MAKE) -C $(LIBFT) fclean
-	rm -f $(OBJ) $(MAIN_OBJ) $(SANDBOX_OBJ) $(NAME) $(SANDBOX)
+	rm -f $(OBJ) $(MAIN_OBJ) $(SANDBOX_OBJ) $(NAME) $(SANDBOX_NAME)
 
 re: fclean all
 
