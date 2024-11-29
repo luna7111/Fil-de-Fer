@@ -6,7 +6,7 @@
 /*   By: ldel-val <ldel-val@42madrid.com>          |  |           *           */
 /*                                                 \  '.___.;       +         */
 /*   Created: 2024/11/26 15:32:11 by ldel-val       '._  _.'   .        .     */
-/*   Updated: 2024/11/26 15:54:00 by ldel-val          ``                     */
+/*   Updated: 2024/11/26 16:04:01 by ldel-val          ``                     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,3 +22,4 @@ typedef struct s_rgba
 }   t_rgba;
 
 int	rgbatoi(t_rgba rgba);
+#endif
