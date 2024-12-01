@@ -6,7 +6,7 @@
 #    By: ldel-val <ldel-val@42madrid.com>          |  |           *            #
 #                                                  \  '.___.;       +          #
 #    Created: 2024/11/25 12:45:41 by ldel-val       '._  _.'   .        .      #
-#    Updated: 2024/11/26 16:31:03 by ldel-val          ``                      #
+#    Updated: 2024/12/01 12:00:02 by ldel-val          ``                      #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ SANDBOX_NAME = sandbox
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -Isrc/fdf.h
 
 MLX_FLAGS = -Lmlx -lmlx -lXext -lX11
 
