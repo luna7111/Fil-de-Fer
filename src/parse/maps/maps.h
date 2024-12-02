@@ -6,11 +6,15 @@
 /*   By: ldel-val <ldel-val@student.42madrid.com>  |  |           *           */
 /*                                                 \  '.___.;       +         */
 /*   Created: 2024/12/01 11:31:18 by ldel-val       '._  _.'   .        .     */
-/*   Updated: 2024/12/01 16:03:57 by ldel-val          ``                     */
+/*   Updated: 2024/12/02 17:17:21 by ldel-val          ``                     */
 /*                                                                            */
 /* ************************************************************************** */
 
-typedef int** grid;
+typedef	struct s_map {
+	int		 size;
+	int 	**h_grid;
+	t_rgba	**c_grid;
+}	t_map;
 
-int *line_to_array(char *line);
-grid    read_map(char *file); 
+int		*line_to_array(char *line, int size);
+t_map	read_map(char *file); 
