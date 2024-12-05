@@ -6,15 +6,19 @@
 /*   By: ldel-val <ldel-val@student.42madrid.com>  |  |           *           */
 /*                                                 \  '.___.;       +         */
 /*   Created: 2024/12/01 11:31:18 by ldel-val       '._  _.'   .        .     */
-/*   Updated: 2024/12/03 12:46:58 by ldel-val          ``                     */
+/*   Updated: 2024/12/04 17:56:50 by ldel-val          ``                     */
 /*                                                                            */
 /* ************************************************************************** */
 
 typedef	struct s_map {
-	int		 size;
+	int		 width;
+	int		 height;
 	int 	**h_grid;
 	t_rgba	**c_grid;
 }	t_map;
 
-int		*line_to_array(char *line, int size);
-t_map	read_map(char *file); 
+t_map	parse_map(int fd);
+void	parse_line(t_map map, char *line, int y);
+void	parse_point(t_map map, char *raw_point, int x, int y);
+int		get_map_height(char **map);
+int		get_map_width(char **map);
