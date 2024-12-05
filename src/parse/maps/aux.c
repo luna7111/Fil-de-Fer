@@ -1,23 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                    _.._  .           .     */
-/*   fdf.h                                          .' .-'`        *          */
+/*   aux.c                                          .' .-'`        *          */
 /*                                                 /  /       +        *      */
 /*   By: ldel-val <ldel-val@42madrid.com>          |  |           *           */
 /*                                                 \  '.___.;       +         */
-/*   Created: 2024/11/26 12:34:16 by ldel-val       '._  _.'   .        .     */
-/*   Updated: 2024/12/05 18:16:36 by ldel-val          ``                     */
+/*   Created: 2024/12/05 17:26:26 by ldel-val       '._  _.'   .        .     */
+/*   Updated: 2024/12/05 18:14:41 by ldel-val          ``                     */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H
+#include <fdf.h>
 
-# include "../mlx/mlx.h"
-# include "../libft/libft.h"
+int	get_map_width(char **map)
+{
+	int		width;
+	char	**split_line;
 
-# include "color/color.h"
-# include "parse/maps/maps.h"
-# include "utils/utils.h"
+	split_line = ft_split(map[0], ' ');
+	width = 0;
+	while (split_line[width])
+		width++;
+	free_split(split_line);
+	return (width);
+}
 
-#endif
+int	get_map_height(char **map)
+{
+	int	height;
+
+	height = 0;
+	while (map[height])
+		height++;
+	return (height);
+}

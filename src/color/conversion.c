@@ -6,7 +6,7 @@
 /*   By: ldel-val <ldel-val@42madrid.com>          |  |           *           */
 /*                                                 \  '.___.;       +         */
 /*   Created: 2024/11/25 16:45:42 by ldel-val       '._  _.'   .        .     */
-/*   Updated: 2024/12/04 18:00:46 by ldel-val          ``                     */
+/*   Updated: 2024/12/05 16:14:24 by ldel-val          ``                     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ t_rgba	init_rgba(int r, int g, int b, int a)
 	return (rgba);
 }
 
-int	check_base(char *string, char *base)
+int	check_hex(char *string, char *base)
 {
 	int	i;
 
@@ -55,7 +55,9 @@ int	check_base(char *string, char *base)
 			return (0);
 		i++;
 	}
-	return (1);
+	if (i == 6)
+		return (1);
+	return (0);
 }
 
 t_rgba	hex_to_rgba(char *hex)
@@ -64,7 +66,7 @@ t_rgba	hex_to_rgba(char *hex)
 
 	if (!ft_strncmp(hex, "0x", 2))
 		hex += 2;
-	if (!check_base(hex, "0123456789ABCDEF"))
+	if (!check_hex(hex, "0123456789ABCDEF"))
 		return (init_rgba(255, 255, 255, 255));
 	color = init_rgba(0,0,0,255);
 	color.r	+= hex_digit_to_int(*hex, "0123456789ABCDEF") * 16;

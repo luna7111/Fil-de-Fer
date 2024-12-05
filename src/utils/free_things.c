@@ -1,23 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                    _.._  .           .     */
-/*   fdf.h                                          .' .-'`        *          */
+/*   free_things.c                                  .' .-'`        *          */
 /*                                                 /  /       +        *      */
 /*   By: ldel-val <ldel-val@42madrid.com>          |  |           *           */
 /*                                                 \  '.___.;       +         */
-/*   Created: 2024/11/26 12:34:16 by ldel-val       '._  _.'   .        .     */
-/*   Updated: 2024/12/05 18:16:36 by ldel-val          ``                     */
+/*   Created: 2024/12/05 17:48:11 by ldel-val       '._  _.'   .        .     */
+/*   Updated: 2024/12/05 18:06:42 by ldel-val          ``                     */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H
+#include <fdf.h>
 
-# include "../mlx/mlx.h"
-# include "../libft/libft.h"
+void	free_map(t_map *map)
+{
+	int	y;
 
-# include "color/color.h"
-# include "parse/maps/maps.h"
-# include "utils/utils.h"
+	y = 0;
+	while (y < map->height)
+	{
+		free(map->h_grid[y]);
+		free(map->c_grid[y]);
+		y++;
+	}
+	free(map->h_grid);
+	free(map->c_grid);
+}
 
-#endif
+void	free_split(char **split)
+{
+	int	i;
+
+	i = 0;
+	while (split[i])
+	{
+		free(split[i]);
+		i++;
+	}
+	free (split);
+}
