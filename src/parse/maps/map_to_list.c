@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                    _.._  .           .     */
-/*   maps.h                                         .' .-'`        *          */
+/*   map_to_list.c                                  .' .-'`        *          */
 /*                                                 /  /       +        *      */
 /*   By: ldel-val <ldel-val@student.42madrid.com>  |  |           *           */
 /*                                                 \  '.___.;       +         */
-/*   Created: 2024/12/01 11:31:18 by ldel-val       '._  _.'   .        .     */
-/*   Updated: 2024/12/08 16:43:07 by ldel-val          ``                     */
+/*   Created: 2024/12/07 22:25:27 by ldel-val       '._  _.'   .        .     */
+/*   Updated: 2024/12/08 17:02:57 by ldel-val          ``                     */
 /*                                                                            */
 /* ************************************************************************** */
 
-typedef struct s_map
+#include <fdf.h>
+/*
+void	list_line(t_3d_line *list, t_map map, int x, int y)
 {
-	int		width;
-	int		height;
-	int		**h_grid;
-	t_rgba	**c_grid;
-}	t_map;
+	
+}
 
-void	parse_point(t_map *map, char *raw_point, int x, int y);
-void	parse_line(t_map *map, char *line, int y);
-void	parse_map(t_map *map, int fd);
-
-int		get_map_width(char **map);
-int		get_map_height(char **map);
+t_3d_line *map_to_list(t_map map)
+{
+	t_3d_line	list;
+	int			x;
+	int 		y;
+	
+	x = 0;
+	y = 0;
+}*/

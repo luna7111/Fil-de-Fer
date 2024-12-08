@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                    _.._  .           .     */
-/*   fdf_to_file.c                                  .' .-'`        *          */
+/*   fdf_to_map.c                                   .' .-'`        *          */
 /*                                                 /  /       +        *      */
 /*   By: ldel-val <ldel-val@student.42madrid.com>  |  |           *           */
 /*                                                 \  '.___.;       +         */
 /*   Created: 2024/12/04 09:35:37 by ldel-val       '._  _.'   .        .     */
-/*   Updated: 2024/12/05 18:16:01 by ldel-val          ``                     */
+/*   Updated: 2024/12/08 16:57:05 by ldel-val          ``                     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,80 +64,4 @@ void	parse_map(t_map *map, int fd)
 		y ++;
 	}
 	free_split(raw_map);
-}
-
-int main(int argn, char **arg)
-{
-	t_map map;
-	int fd;
-	
-	if (argn < 2)
-		return (0);
-	fd = open(arg[1], O_RDONLY);
-	if (fd == -1)
-		return (0);
-	parse_map(&map, fd);
-	
-	int	x = 0;
-	int y = 0;
-	ft_printf("height = %d\n", map.height);
-	ft_printf("width = %d\n", map.width);
-	while (y < map.height)
-	{
-		while (x < map.width)
-		{
-			ft_printf("%d ", map.h_grid[y][x]);
-			x++;
-		}
-		ft_printf("\n");
-		x = 0;
-		y++;
-	}
-	y = 0;
-	x = 0;
-	ft_printf("Red:\n");
-	while (y < map.height)
-	{
-		while (x < map.width)
-		{
-			ft_printf("%d ", map.c_grid[y][x].r);
-			x++;
-		
-		}
-		ft_printf("\n");
-		x = 0;
-		y++;
-	}
-	y = 0;
-	x = 0;
-	ft_printf("Green:\n");
-	while (y < map.height)
-	{
-		while (x < map.width)
-		{
-			ft_printf("%d ", map.c_grid[y][x].g);
-			x++;
-		
-		}
-		ft_printf("\n");
-		x = 0;
-		y++;
-	}
-	y = 0;
-	x = 0;
-	ft_printf("Blue:\n");
-	while (y < map.height)
-	{
-		while (x < map.width)
-		{
-			ft_printf("%d ", map.c_grid[y][x].b);
-			x++;
-		
-		}
-		ft_printf("\n");
-		x = 0;
-		y++;
-	}
-	free_map(&map);
-	close(fd);
 }

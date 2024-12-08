@@ -6,7 +6,7 @@
 #    By: ldel-val <ldel-val@42madrid.com>          |  |           *            #
 #                                                  \  '.___.;       +          #
 #    Created: 2024/11/25 12:45:41 by ldel-val       '._  _.'   .        .      #
-#    Updated: 2024/12/01 12:00:02 by ldel-val          ``                      #
+#    Updated: 2024/12/08 20:08:37 by ldel-val          ``                      #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,15 +16,20 @@ SANDBOX_NAME = sandbox
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror -Isrc/fdf.h
+CFLAGS = -Wall -Wextra -Werror -Isrc
 
-MLX_FLAGS = -Lmlx -lmlx -lXext -lX11
+MLX_FLAGS = -Lmlx -lmlx -lXext -lX11 -lm
 
 RM = rm -f
 
 HEADER = src/fdf.h
 
-SRC = src/color/conversion.c
+SRC = 	src/parse/maps/fdf_to_map.c\
+		src/parse/maps/map_to_list.c\
+		src/parse/maps/aux\
+		src/draw_2d.c\
+		src/color/conversion.c\
+		src/utils/free_things.c
 
 OBJ = $(SRC:.c=.o)
 
