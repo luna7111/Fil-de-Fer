@@ -1,18 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                    _.._  .           .     */
-/*   utils.h                                        .' .-'`        *          */
+/*   misc.c                                         .' .-'`        *          */
 /*                                                 /  /       +        *      */
 /*   By: ldel-val <ldel-val@42madrid.com>          |  |           *           */
 /*                                                 \  '.___.;       +         */
-/*   Created: 2024/12/05 17:49:29 by ldel-val       '._  _.'   .        .     */
-/*   Updated: 2024/12/09 16:37:27 by ldel-val          ``                     */
+/*   Created: 2024/12/09 16:24:02 by ldel-val       '._  _.'   .        .     */
+/*   Updated: 2024/12/09 16:34:00 by ldel-val          ``                     */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fdf.h>
 
-void	free_map(t_map *map);
-void	free_split(char **split);
-
-void	swap_line(t_2d_line *line);
+void	swap_line(t_2d_line *line)
+{
+	t_2d_point buffer;
+	
+	buffer = line->p1;
+	line->p1 = line->p2;
+	line->p2 = buffer;
+}
