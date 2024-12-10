@@ -6,7 +6,7 @@
 /*   By: ldel-val <ldel-val@student.42madrid.com>  |  |           *           */
 /*                                                 \  '.___.;       +         */
 /*   Created: 2024/12/08 16:47:03 by ldel-val       '._  _.'   .        .     */
-/*   Updated: 2024/12/09 19:32:38 by ldel-val          ``                     */
+/*   Updated: 2024/12/10 13:00:32 by ldel-val          ``                     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ t_rgba	get_gradient_pixel(t_2d_line line, t_2d_point pixel, int hv)
 {
 	t_rgba	color;
 	float	weight;
+	
+
 
 	if (hv == 1)
 		weight = (float)(pixel.x - line.p1.x) / (line.p2.x -  line.p1.x);
@@ -38,7 +40,7 @@ void	draw_line(void *ctx, void *win, t_2d_line line)
 		float		dx = line.p2.x - line.p1.x;
 		float		dy = line.p2.y - line.p1.y;
 		t_2d_point	pixel;
-		float			slope;
+		float		slope;
 
 		if (fabs(dx) >= fabs(dy))
 		{
@@ -78,15 +80,29 @@ int	main(void)
 	
 	line.p1.color.r = 255;
 	line.p1.color.g = 0;
-	line.p1.color.b = 0;
+	line.p1.color.b = 255;
 	line.p1.color.a = 255;
 
-	line.p1.color.r = 0;
-	line.p1.color.g = 255;
-	line.p1.color.b = 0;
-	line.p1.color.a = 255;
-
+	line.p2.color.r = 0;
+	line.p2.color.g = 255;
+	line.p2.color.b = 255;
+	line.p2.color.a = 0;
+	
 	line.p1.x = 0;
+	line.p1.y = 0;
+	line.p2.x = 998;
+	line.p2.y = 1000;
+
+	draw_line(ctx, win, line);
+
+	line.p1.x = 1;
+	line.p1.y = 0;
+	line.p2.x = 999;
+	line.p2.y = 1000;
+
+	draw_line(ctx, win, line);
+	
+	line.p1.x = 2;
 	line.p1.y = 0;
 	line.p2.x = 1000;
 	line.p2.y = 1000;
