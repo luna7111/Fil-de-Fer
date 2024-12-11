@@ -6,7 +6,7 @@
 #    By: ldel-val <ldel-val@42madrid.com>          |  |           *            #
 #                                                  \  '.___.;       +          #
 #    Created: 2024/11/25 12:45:41 by ldel-val       '._  _.'   .        .      #
-#    Updated: 2024/12/08 20:08:37 by ldel-val          ``                      #
+#    Updated: 2024/12/11 22:45:23 by ldel-val          ``                      #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CC = cc
 
 CFLAGS = -Wall -Wextra -Werror -Isrc
 
-MLX_FLAGS = -Lmlx -lmlx -lXext -lX11 -lm
+LIB_FLAGS = -Lmlx -lmlx -lXext -lX11 -lm
 
 RM = rm -f
 
@@ -47,26 +47,7 @@ MLX = mlx
 
 all: $(NAME)
 
-$(NAME): $(OBJ) $(MAIN_OBJ)
-	$(MAKE) -C $(LIBFT)
-	$(MAKE) -C $(MLX)
-	$(CC) $(CFLAGS) $(MAIN_OBJ) $(OBJ) $(MLX_FLAGS) -o $(NAME)
+$(OBJ): $(SRC)
+	$(CC) $(CFLAGS) $(SRC) -o $(OBJ)
 
-$(SANDBOX_NAME): $(OBJ) $(SANDBOX_OBJ)
-	$(MAKE) -C $(LIBFT)
-	$(MAKE) -C $(MLX)
-	$(CC) $(CFLAGS) $(SANDBOX_OBJ) $(OBJ) $(MLX_FLAGS) -o $(SANDBOX_NAME)
-
-clean:
-	$(MAKE) -C $(MLX) clean
-	$(MAKE) -C $(LIBFT) clean
-	rm -f $(OBJ) $(MAIN_OBJ) $(SANDBOX_OBJ)
-
-fclean:
-	$(MAKE) -C $(MLX) clean
-	$(MAKE) -C $(LIBFT) fclean
-	rm -f $(OBJ) $(MAIN_OBJ) $(SANDBOX_OBJ) $(NAME) $(SANDBOX_NAME)
-
-re: fclean all
-
-.PHONY: all re clean fclean
+$(NAME): $(OBJ)

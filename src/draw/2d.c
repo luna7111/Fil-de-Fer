@@ -6,7 +6,7 @@
 /*   By: ldel-val <ldel-val@student.42madrid.com>  |  |           *           */
 /*                                                 \  '.___.;       +         */
 /*   Created: 2024/12/08 16:47:03 by ldel-val       '._  _.'   .        .     */
-/*   Updated: 2024/12/11 18:43:57 by ldel-val          ``                     */
+/*   Updated: 2024/12/11 23:38:04 by ldel-val          ``                     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,10 +90,10 @@ int	main(void)
 	void	*win = mlx_new_window(ctx, 1000, 1000, "test");
 	t_2d_line line;
 
-	line.p1 = iso_project(init_3d(0,0,0,190,0,255));
-	line.p2 = iso_project(init_3d(0,0,40,250,0,255));
+	line.p1 = iso_project(init_3d(40,40,40,0,250,255));
+	line.p2 = iso_project(init_3d(40,40,0,190,0,255));
 	draw_line(ctx, win, line);
-	
+
 	line.p1 = iso_project(init_3d(0,0,0,190,0,255));
 	line.p2 = iso_project(init_3d(40,0,0,190,0,255));
 	draw_line(ctx, win, line);
@@ -118,10 +118,6 @@ int	main(void)
 	line.p2 = iso_project(init_3d(40,40,40,0,250,255));
 	draw_line(ctx, win, line);
 	
-	line.p1 = iso_project(init_3d(40,40,40,0,250,255));
-	line.p2 = iso_project(init_3d(40,40,0,190,0,255));
-	draw_line(ctx, win, line);
-
 	line.p1 = iso_project(init_3d(0,40,0,190,0,255));
 	line.p2 = iso_project(init_3d(40,40,0,190,0,255));
 	draw_line(ctx, win, line);
@@ -138,5 +134,9 @@ int	main(void)
 	line.p2 = iso_project(init_3d(40,0,0,190,0,255));
 	draw_line(ctx, win, line);
 
+	line.p1 = iso_project(init_3d(0,0,0,190,0,255));
+	line.p2 = iso_project(init_3d(0,0,40,0,250,255));
+	draw_line(ctx, win, line);
+	
 	while (1);
 }
