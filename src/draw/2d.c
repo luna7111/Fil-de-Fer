@@ -6,7 +6,7 @@
 /*   By: ldel-val <ldel-val@student.42madrid.com>  |  |           *           */
 /*                                                 \  '.___.;       +         */
 /*   Created: 2024/12/08 16:47:03 by ldel-val       '._  _.'   .        .     */
-/*   Updated: 2024/12/10 13:00:32 by ldel-val          ``                     */
+/*   Updated: 2024/12/11 18:43:57 by ldel-val          ``                     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@ t_rgba	get_gradient_pixel(t_2d_line line, t_2d_point pixel, int hv)
 		weight = (float)(pixel.x - line.p1.x) / (line.p2.x -  line.p1.x);
 	else
 		weight = (float)(pixel.y - line.p1.y) / (line.p2.y -  line.p1.y);
-	color.r = (line.p1.color.r * weight) + (line.p2.color.r * (1 - weight));
-	color.g = (line.p1.color.g * weight) + (line.p2.color.g * (1 - weight));
-	color.b = (line.p1.color.b * weight) + (line.p2.color.b * (1 - weight));
-	color.a = (line.p1.color.a * weight) + (line.p2.color.a * (1 - weight));
+	color.r = (line.p2.color.r * weight) + (line.p1.color.r * (1 - weight));
+	color.g = (line.p2.color.g * weight) + (line.p1.color.g * (1 - weight));
+	color.b = (line.p2.color.b * weight) + (line.p1.color.b * (1 - weight));
+	color.a = (line.p2.color.a * weight) + (line.p1.color.a * (1 - weight));
 	return (color);
 }
 
@@ -72,41 +72,71 @@ void	draw_line(void *ctx, void *win, t_2d_line line)
 		}
 }
 
+t_3d_point init_3d(int x, int y, int z, int r, int g, int b)
+{
+	t_3d_point point;
+	point.x = x;
+	point.y = y;
+	point.z = z;
+	point.color.r = r;
+	point.color.g = g;
+	point.color.b = b;
+	return (point);
+}
+
 int	main(void)
 {
 	void	*ctx = mlx_init();
 	void	*win = mlx_new_window(ctx, 1000, 1000, "test");
 	t_2d_line line;
-	
-	line.p1.color.r = 255;
-	line.p1.color.g = 0;
-	line.p1.color.b = 255;
-	line.p1.color.a = 255;
 
-	line.p2.color.r = 0;
-	line.p2.color.g = 255;
-	line.p2.color.b = 255;
-	line.p2.color.a = 0;
-	
-	line.p1.x = 0;
-	line.p1.y = 0;
-	line.p2.x = 998;
-	line.p2.y = 1000;
-
-	draw_line(ctx, win, line);
-
-	line.p1.x = 1;
-	line.p1.y = 0;
-	line.p2.x = 999;
-	line.p2.y = 1000;
-
+	line.p1 = iso_project(init_3d(0,0,0,190,0,255));
+	line.p2 = iso_project(init_3d(0,0,40,250,0,255));
 	draw_line(ctx, win, line);
 	
-	line.p1.x = 2;
-	line.p1.y = 0;
-	line.p2.x = 1000;
-	line.p2.y = 1000;
-
+	line.p1 = iso_project(init_3d(0,0,0,190,0,255));
+	line.p2 = iso_project(init_3d(40,0,0,190,0,255));
 	draw_line(ctx, win, line);
+	
+	line.p1 = iso_project(init_3d(0,0,0,190,0,255));
+	line.p2 = iso_project(init_3d(0,40,0,190,0,255));
+	draw_line(ctx, win, line);
+//
+	line.p1 = iso_project(init_3d(0,0,40,0,250,255));
+	line.p2 = iso_project(init_3d(40,0,40,0,250,255));
+	draw_line(ctx, win, line);
+	
+	line.p1 = iso_project(init_3d(0,0,40,0,250,255));
+	line.p2 = iso_project(init_3d(0,40,40,0,250,255));
+	draw_line(ctx, win, line);
+
+	line.p1 = iso_project(init_3d(40,0,40,0,250,255));
+	line.p2 = iso_project(init_3d(40,40,40,0,250,255));
+	draw_line(ctx, win, line);
+	
+	line.p1 = iso_project(init_3d(0,40,40,0,250,255));
+	line.p2 = iso_project(init_3d(40,40,40,0,250,255));
+	draw_line(ctx, win, line);
+	
+	line.p1 = iso_project(init_3d(40,40,40,0,250,255));
+	line.p2 = iso_project(init_3d(40,40,0,190,0,255));
+	draw_line(ctx, win, line);
+
+	line.p1 = iso_project(init_3d(0,40,0,190,0,255));
+	line.p2 = iso_project(init_3d(40,40,0,190,0,255));
+	draw_line(ctx, win, line);
+
+	line.p1 = iso_project(init_3d(40,0,0,190,0,255));
+	line.p2 = iso_project(init_3d(40,40,0,190,0,255));
+	draw_line(ctx, win, line);
+
+	line.p1 = iso_project(init_3d(0,40,40,0,250,255));
+	line.p2 = iso_project(init_3d(0,40,0,190,0,255));
+	draw_line(ctx, win, line);
+	
+	line.p1 = iso_project(init_3d(40,0,40,0,250,255));
+	line.p2 = iso_project(init_3d(40,0,0,190,0,255));
+	draw_line(ctx, win, line);
+
 	while (1);
 }

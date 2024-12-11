@@ -6,7 +6,7 @@
 /*   By: ldel-val <ldel-val@42madrid.com>          |  |           *           */
 /*                                                 \  '.___.;       +         */
 /*   Created: 2024/11/26 12:34:16 by ldel-val       '._  _.'   .        .     */
-/*   Updated: 2024/12/09 16:43:02 by ldel-val          ``                     */
+/*   Updated: 2024/12/11 17:27:25 by ldel-val          ``                     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define FDF_H
 
 # include "../mlx/mlx.h"
-# include <mlx.h>
+# include "../mlx/mlx.h"
 # include "../libft/libft.h"
 # include <math.h>
 
@@ -49,5 +49,6 @@ typedef struct s_2d_line
 }	t_2d_line;
 
 # include "utils/utils.h"
+# include "projection/projections.h"
 
 #endif
