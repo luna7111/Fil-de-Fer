@@ -6,7 +6,7 @@
 /*   By: ldel-val <ldel-val@student.42madrid.com>  |  |           *           */
 /*                                                 \  '.___.;       +         */
 /*   Created: 2024/12/11 14:25:33 by ldel-val       '._  _.'   .        .     */
-/*   Updated: 2024/12/11 23:40:49 by ldel-val          ``                     */
+/*   Updated: 2024/12/13 18:53:18 by ldel-val          ``                     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,12 @@ t_2d_point	iso_project(t_3d_point point)
 {
 	t_2d_point	projected;
 	
-	printf("iso_project input: x %f, y %f, z %f\n", point.x, point.y, point.z);
+	point.x *=10;
+	point.y *=10;
+	point.z *=10;
 
 	projected.color = point.color;
-	projected.y = 500 + point.z + (point.x * sin(60)) + (point.y * sin(60));
+	projected.y = 500 - point.z - (point.x * sin(60)) - (point.y * sin(60));
 	projected.x = 500 + (point.x * cos(60)) - (point.y * cos(60));
-	printf("projected coordinates: x %d, y %d\n", projected.x, projected.y);
 	return (projected);
 }

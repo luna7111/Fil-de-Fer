@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                    _.._  .           .     */
+/*                                                        :::      ::::::::   */
 /*   2d.c                                           .' .-'`        *          */
-/*                                                 /  /       +        *      */
-/*   By: ldel-val <ldel-val@student.42madrid.com>  |  |           *           */
-/*                                                 \  '.___.;       +         */
-/*   Created: 2024/12/08 16:47:03 by ldel-val       '._  _.'   .        .     */
-/*   Updated: 2024/12/11 23:38:04 by ldel-val          ``                     */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ldel-val <ldel-val@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/12/08 16:47:03 by ldel-val          #+#    #+#             */
+/*   Updated: 2024/12/13 18:54:05 by ldel-val          ``                     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,59 +84,27 @@ t_3d_point init_3d(int x, int y, int z, int r, int g, int b)
 	return (point);
 }
 
-int	main(void)
+int	main(int argn, char **arg)
 {
 	void	*ctx = mlx_init();
 	void	*win = mlx_new_window(ctx, 1000, 1000, "test");
+	t_line_list	list;
+	t_map map;
+
+	parse_map(&map, open(arg[1], O_RDONLY));
+	list = map_to_list(map);
+	
+	int i = 0;
 	t_2d_line line;
+	printf("%d\n", list.size);
+	while (i < list.size)
+	{
+		printf("%d\n", i);
+		line.p1 = iso_project(list.lines[i].p1);
+		line.p2 = iso_project(list.lines[i].p2);
+		draw_line(ctx, win, line);
+		i++;
+	}
 
-	line.p1 = iso_project(init_3d(40,40,40,0,250,255));
-	line.p2 = iso_project(init_3d(40,40,0,190,0,255));
-	draw_line(ctx, win, line);
-
-	line.p1 = iso_project(init_3d(0,0,0,190,0,255));
-	line.p2 = iso_project(init_3d(40,0,0,190,0,255));
-	draw_line(ctx, win, line);
-	
-	line.p1 = iso_project(init_3d(0,0,0,190,0,255));
-	line.p2 = iso_project(init_3d(0,40,0,190,0,255));
-	draw_line(ctx, win, line);
-//
-	line.p1 = iso_project(init_3d(0,0,40,0,250,255));
-	line.p2 = iso_project(init_3d(40,0,40,0,250,255));
-	draw_line(ctx, win, line);
-	
-	line.p1 = iso_project(init_3d(0,0,40,0,250,255));
-	line.p2 = iso_project(init_3d(0,40,40,0,250,255));
-	draw_line(ctx, win, line);
-
-	line.p1 = iso_project(init_3d(40,0,40,0,250,255));
-	line.p2 = iso_project(init_3d(40,40,40,0,250,255));
-	draw_line(ctx, win, line);
-	
-	line.p1 = iso_project(init_3d(0,40,40,0,250,255));
-	line.p2 = iso_project(init_3d(40,40,40,0,250,255));
-	draw_line(ctx, win, line);
-	
-	line.p1 = iso_project(init_3d(0,40,0,190,0,255));
-	line.p2 = iso_project(init_3d(40,40,0,190,0,255));
-	draw_line(ctx, win, line);
-
-	line.p1 = iso_project(init_3d(40,0,0,190,0,255));
-	line.p2 = iso_project(init_3d(40,40,0,190,0,255));
-	draw_line(ctx, win, line);
-
-	line.p1 = iso_project(init_3d(0,40,40,0,250,255));
-	line.p2 = iso_project(init_3d(0,40,0,190,0,255));
-	draw_line(ctx, win, line);
-	
-	line.p1 = iso_project(init_3d(40,0,40,0,250,255));
-	line.p2 = iso_project(init_3d(40,0,0,190,0,255));
-	draw_line(ctx, win, line);
-
-	line.p1 = iso_project(init_3d(0,0,0,190,0,255));
-	line.p2 = iso_project(init_3d(0,0,40,0,250,255));
-	draw_line(ctx, win, line);
-	
 	while (1);
 }
