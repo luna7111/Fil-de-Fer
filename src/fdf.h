@@ -6,7 +6,7 @@
 /*   By: ldel-val <ldel-val@42madrid.com>          |  |           *           */
 /*                                                 \  '.___.;       +         */
 /*   Created: 2024/11/26 12:34:16 by ldel-val       '._  _.'   .        .     */
-/*   Updated: 2024/12/13 17:11:03 by ldel-val          ``                     */
+/*   Updated: 2024/12/15 22:05:49 by ldel-val          ``                     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,19 @@
 # include <math.h>
 
 # include "color/color.h"
+
+typedef struct s_data
+{
+	void	*ctx;
+	void	*win;
+	int		win_w;
+	int		win_h;
+	void	*img;
+	char	*img_addr;
+	int		img_bpp;
+	int		img_l_len;
+	int		img_endian;
+}	t_data;
 
 typedef struct s_3d_point
 {

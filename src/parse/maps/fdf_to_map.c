@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf_to_map.c                                       :+:      :+:    :+:   */
+/*   fdf_to_map.c                                   .' .-'`        *          */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ldel-val <ldel-val@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 09:35:37 by ldel-val          #+#    #+#             */
-/*   Updated: 2024/12/13 18:03:32 by ldel-val         ###   ########.fr       */
+/*   Updated: 2024/12/15 20:56:57 by ldel-val          ``                     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 void	parse_point(t_map *map, char *raw_point, int x, int y)
 {
 	char	**split_point;
-
+	
+	if (ft_strchr(raw_point, '\n'))
+		*ft_strchr(raw_point, '\n') = '\0';
 	split_point = ft_split(raw_point, ',');
 	map->h_grid[y][x] = ft_atoi(split_point[0]);
 	if (split_point[1])

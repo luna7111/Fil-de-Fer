@@ -6,12 +6,15 @@
 /*   By: ldel-val <ldel-val@42madrid.com>          |  |           *           */
 /*                                                 \  '.___.;       +         */
 /*   Created: 2024/11/26 15:32:11 by ldel-val       '._  _.'   .        .     */
-/*   Updated: 2024/12/04 17:52:21 by ldel-val          ``                     */
+/*   Updated: 2024/12/15 17:53:20 by ldel-val          ``                     */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef COLOR_H
 # define COLOR_H
+
+# define L_HEX "0123456789abcdef"
+# define U_HEX "0123456789ABCDEF"
 
 typedef struct s_rgba
 {
