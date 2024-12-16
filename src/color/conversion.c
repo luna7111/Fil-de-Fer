@@ -6,11 +6,11 @@
 /*   By: ldel-val <ldel-val@42madrid.com>          |  |           *           */
 /*                                                 \  '.___.;       +         */
 /*   Created: 2024/11/25 16:45:42 by ldel-val       '._  _.'   .        .     */
-/*   Updated: 2024/12/15 20:24:01 by ldel-val          ``                     */
+/*   Updated: 2024/12/16 21:27:23 by ldel-val          ``                     */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../fdf.h"
+#include <fdf.h>
 
 int	rgba_to_int(t_rgba rgba)
 {
