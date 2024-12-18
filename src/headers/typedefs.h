@@ -6,7 +6,7 @@
 /*   By: ldel-val <ldel-val@42madrid.com>          |  |           *           */
 /*                                                 \  '.___.;       +         */
 /*   Created: 2024/12/16 20:57:50 by ldel-val       '._  _.'   .        .     */
-/*   Updated: 2024/12/16 21:20:12 by ldel-val          ``                     */
+/*   Updated: 2024/12/18 21:47:03 by ldel-val          ``                     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,19 +64,32 @@ typedef struct s_map
 
 typedef struct s_data
 {
-	void		*ctx;
-	void		*win;
-	int			win_w;
-	int			win_h;
-	int			fd;
-	void		*img;
-	char		*img_addr;
-	int			img_bpp;
-	int			img_l_len;
-	int			img_endian;
+	void			*ctx;
+	void			*win;
+	int				win_w;
+	int				win_h;
+	int				fd;
+	void			*lod;
+	char			*lod_addr;
+	int				lod_bpp;
+	int				lod_l_len;
+	int				lod_endian;
+	void			*img;
+	char			*img_addr;
+	int				img_bpp;
+	int				img_l_len;
+	int				img_endian;
+	unsigned int	zoom;
+	int				cam_x;
+	int				cam_y;
 	t_map		map;
 	t_line_list list;
 }	t_data;
+/*
+input_mode:
 
+0 = iddle;
+1 = zoom;
+*/
 
 #endif

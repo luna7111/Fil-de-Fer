@@ -6,22 +6,24 @@
 /*   By: ldel-val <ldel-val@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 16:47:03 by ldel-val          #+#    #+#             */
-/*   Updated: 2024/12/16 22:02:15 by ldel-val          ``                     */
+/*   Updated: 2024/12/18 20:49:14 by ldel-val          ``                     */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fdf.h>
 
-void	draw_pixel_legacy(t_data *data, t_2d_point pixel)
+void	l_draw_pixel(t_data *data, t_2d_point pixel)
 {
 	mlx_pixel_put(data->ctx, data->win, pixel.x, pixel.y, rgba_to_int(pixel.color));
 }
 
-void	draw_pixel(t_data *data, t_2d_point pixel)
+void	draw_pixel(t_data *data, char *img_addr, t_2d_point pixel)
 {
 	char *dst;
 
-	dst = data->img_addr + (pixel.y * data->img_l_len + pixel.x * (data->img_bpp / 8));
+	if (pixel.x < 0 || pixel.y < 0 || pixel.x > data->win_w || pixel.y > data->win_h)
+		return ;
+	dst = img_addr + (pixel.y * data->img_l_len + pixel.x * (data->img_bpp / 8));
 	*(unsigned int*)dst = rgba_to_int(pixel.color);
 }
 
@@ -60,7 +62,7 @@ void	draw_line(t_data *data, t_2d_line line)
 			while (pixel.x <= line.p2.x)
 			{
 				pixel.color = get_gradient_pixel(line, pixel, 1);
-				draw_pixel(data, pixel);
+				draw_pixel(data, data->img_addr, pixel);
 				pixel.x ++;
 				pixel.y = line.p1.y + ((pixel.x - line.p1.x) * slope);
 			}
@@ -73,7 +75,7 @@ void	draw_line(t_data *data, t_2d_line line)
 			while (pixel.y <= line.p2.y)
 			{
 				pixel.color = get_gradient_pixel(line, pixel, 0);
-				draw_pixel(data, pixel);
+				draw_pixel(data, data->img_addr, pixel);
 				pixel.y ++;
 				pixel.x = line.p1.x + ((pixel.y - line.p1.y) * slope);
 			}
