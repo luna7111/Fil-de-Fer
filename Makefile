@@ -6,7 +6,7 @@
 #    By: ldel-val <ldel-val@42madrid.com>          |  |           *            #
 #                                                  \  '.___.;       +          #
 #    Created: 2024/11/25 12:45:41 by ldel-val       '._  _.'   .        .      #
-#    Updated: 2024/12/22 16:32:58 by ldel-val          ``                      #
+#    Updated: 2024/12/22 17:20:08 by ldel-val          ``                      #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ CC 		:=	cc
 RM 		:=	rm -f
 
 #Flags
+MLX		:=	mlx/libmlx.a
 LIBFT	:=	libft/libft.a
 CFLAGS 	:=	-Wall -Wextra -Werror -O3 -Isrc/headers
 LIB 	:=	-Lmlx -lmlx -lXext -lX11 -lm $(LIBFT)
@@ -38,13 +39,23 @@ OBJ		:=	$(SRC:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
+$(LIBFT):
+	$(MAKE) -C libft
+
+$(MLX):
+	$(MAKE) -C mlx
+
+$(NAME): $(OBJ) $(LIBFT) $(MLX)
 	$(CC) $(CFLAGS) $(OBJ) $(LIB) -o $(NAME) 
 
 clean:
+	$(MAKE) -C libft fclean
+	$(MAKE) -C mlx clean
 	$(RM) $(OBJ)
 
 fclean:
+	$(MAKE) -C libft fclean
+	$(MAKE) -C libft clean
 	$(RM) $(OBJ)
 	$(RM) $(NAME)
 
