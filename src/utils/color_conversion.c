@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                    _.._  .           .     */
-/*   conversion.c                                   .' .-'`        *          */
+/*   color_conversion.c                             .' .-'`        *          */
 /*                                                 /  /       +        *      */
 /*   By: ldel-val <ldel-val@42madrid.com>          |  |           *           */
 /*                                                 \  '.___.;       +         */
 /*   Created: 2024/11/25 16:45:42 by ldel-val       '._  _.'   .        .     */
-/*   Updated: 2024/12/16 21:27:23 by ldel-val          ``                     */
+/*   Updated: 2024/12/22 16:16:33 by ldel-val          ``                     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	rgba_to_int(t_rgba rgba)
 {
-	int color;
+	int	color;
 
 	color = rgba.a;
 	color = color << 8;
@@ -48,13 +48,13 @@ t_rgba	init_rgba(int r, int g, int b, int a)
 
 int	check_hex(char *string)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (string[i])
 	{
 		if (!ft_strchr(L_HEX, string[i]))
-			break;
+			break ;
 		i++;
 	}
 	if (string[i])
@@ -80,8 +80,7 @@ t_rgba	hex_to_rgba(char *hex)
 		hex += 2;
 	if (check_hex(hex) == 0 || !*hex)
 		return (hex_to_rgba("ffffff"));
-	if (check_hex(hex) == 1)
-		base = ft_strdup(L_HEX);
+	base = ft_strdup(L_HEX);
 	if (check_hex(hex) == 2)
 		base = ft_strdup(U_HEX);
 	bytewise = 0;

@@ -6,7 +6,7 @@
 /*   By: ldel-val <ldel-val@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 09:35:37 by ldel-val          #+#    #+#             */
-/*   Updated: 2024/12/18 18:11:42 by ldel-val          ``                     */
+/*   Updated: 2024/12/22 12:02:25 by ldel-val          ``                     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	parse_point(t_map map, char *raw_point, int x, int y)
 {
 	char	**split_point;
-	
+
 	if (ft_strchr(raw_point, '\n'))
 		*ft_strchr(raw_point, '\n') = '\0';
 	split_point = ft_split(raw_point, ',');

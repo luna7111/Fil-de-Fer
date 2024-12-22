@@ -6,48 +6,48 @@
 #    By: ldel-val <ldel-val@42madrid.com>          |  |           *            #
 #                                                  \  '.___.;       +          #
 #    Created: 2024/11/25 12:45:41 by ldel-val       '._  _.'   .        .      #
-#    Updated: 2024/12/13 17:18:46 by ldel-val          ``                      #
+#    Updated: 2024/12/22 16:32:58 by ldel-val          ``                      #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = fdf
+#Compiler and linker
+CC 		:=	cc
 
-SANDBOX_NAME = sandbox
+#Remove tool
+RM 		:=	rm -f
 
-CC = cc
+#Flags
+LIBFT	:=	libft/libft.a
+CFLAGS 	:=	-Wall -Wextra -Werror -O3 -Isrc/headers
+LIB 	:=	-Lmlx -lmlx -lXext -lX11 -lm $(LIBFT)
+DEBUG 	:=	-g3
 
-CFLAGS = -Wall -Wextra -Werror -Isrc
+#Project stuff 
 
-LIB_FLAGS = -Lmlx -lmlx -lXext -lX11 -lm
+NAME 	:=	fdf
+SRC 	:=	src/fdf.c src/hooks.c\
+			src/parsing/fdf_to_map.c src/parsing/map_to_list.c src/parsing/aux.c\
+			src/projection/isometric.c\
+			src/rendering/drawing.c\
+			src/utils/color_conversion.c src/utils/free_memory.c src/utils/misc.c
+OBJ		:=	$(SRC:.c=.o)
 
-RM = rm -f
-
-HEADER = src/fdf.h
-
-SRC = 	src/parse/maps/fdf_to_map.c\
-		src/parse/maps/map_to_list.c\
-		src/parse/maps/aux\
-		src/draw_2d.c\
-		src/color/conversion.c\
-		src/utils/free_things.c
-
-OBJ = $(SRC:.c=.o)
-
-MAIN = src/fdf.c
-
-MAIN_OBJ = $(MAIN:.c=.o)
-
-SANDBOX = src/sandbox.c
-
-SANDBOX_OBJ = $(SANDBOX:.c=.o)
-
-LIBFT = libft
-
-MLX = mlx
+#-----------------------------------------------------------------------------#
+#                                    Rules                                    #
+#-----------------------------------------------------------------------------#
 
 all: $(NAME)
 
-$(OBJ): $(SRC)
-	$(CC) $(CFLAGS) $(SRC) -o $(OBJ)
-
 $(NAME): $(OBJ)
+	$(CC) $(CFLAGS) $(OBJ) $(LIB) -o $(NAME) 
+
+clean:
+	$(RM) $(OBJ)
+
+fclean:
+	$(RM) $(OBJ)
+	$(RM) $(NAME)
+
+re: fclean $(NAME)
+
+.PHONY: all clean fclean re

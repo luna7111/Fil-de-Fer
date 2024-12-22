@@ -6,7 +6,7 @@
 /*   By: ldel-val <ldel-val@42madrid.com>          |  |           *           */
 /*                                                 \  '.___.;       +         */
 /*   Created: 2024/12/16 20:57:50 by ldel-val       '._  _.'   .        .     */
-/*   Updated: 2024/12/18 21:47:03 by ldel-val          ``                     */
+/*   Updated: 2024/12/21 23:26:40 by ldel-val          ``                     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,17 @@
 
 typedef struct s_rgba
 {
-    int a;
-    int r;
-    int g;
-    int b;
-}   t_rgba;
+	int	a;
+	int	r;
+	int	g;
+	int	b;
+}	t_rgba;
 
 typedef struct s_3d_point
 {
-	int	x;
-	int	y;
-	int	z;
+	int		x;
+	int		y;
+	int		z;
 	t_rgba	color;
 }	t_3d_point;
 
@@ -38,14 +38,14 @@ typedef struct s_3d_line
 typedef struct s_2d_point
 {
 	int		x;
-	int 	y;
+	int		y;
 	t_rgba	color;
 }	t_2d_point;
 
 typedef struct s_2d_line
 {
-	t_2d_point p1;
-	t_2d_point p2;
+	t_2d_point	p1;
+	t_2d_point	p2;
 }	t_2d_line;
 
 typedef struct s_line_list
@@ -82,14 +82,8 @@ typedef struct s_data
 	unsigned int	zoom;
 	int				cam_x;
 	int				cam_y;
-	t_map		map;
-	t_line_list list;
+	t_map			map;
+	t_line_list		list;
 }	t_data;
-/*
-input_mode:
-
-0 = iddle;
-1 = zoom;
-*/
 
 #endif

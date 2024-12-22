@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                    _.._  .           .     */
-/*   maps.h                                         .' .-'`        *          */
+/*   hooks.h                                        .' .-'`        *          */
 /*                                                 /  /       +        *      */
 /*   By: ldel-val <ldel-val@student.42madrid.com>  |  |           *           */
 /*                                                 \  '.___.;       +         */
-/*   Created: 2024/12/01 11:31:18 by ldel-val       '._  _.'   .        .     */
-/*   Updated: 2024/12/21 23:21:27 by ldel-val          ``                     */
+/*   Created: 2024/12/22 13:18:56 by ldel-val       '._  _.'   .        .     */
+/*   Updated: 2024/12/22 13:34:45 by ldel-val          ``                     */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAPS_H
-# define MAPS_H
+#ifndef HOOKS_H
+# define HOOKS_H
 
-void		parse_point(t_map map, char *raw_point, int x, int y);
-void		parse_line(t_map map, char *line, int y);
-t_map		parse_map(int fd);
+# define M_UP 4
+# define M_DOWN 5
+# define K_ESC 65307
+# define K_LEFT 65361
+# define K_UP 65362
+# define K_RIGHT 65363
+# define K_DOWN 65364
 
-int			get_map_width(char **map);
-int			get_map_height(char **map);
+int	key_hook(int keycode, t_data *data);
+int	mouse_hook(int keycode, int x, int y, t_data *data);
+int	safe_close(t_data *data);
 
-t_line_list	map_to_list(t_map map);
 #endif

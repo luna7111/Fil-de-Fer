@@ -6,7 +6,7 @@
 /*   By: ldel-val <ldel-val@42madrid.com>          |  |           *           */
 /*                                                 \  '.___.;       +         */
 /*   Created: 2024/11/25 16:43:50 by ldel-val       '._  _.'   .        .     */
-/*   Updated: 2024/12/18 21:58:58 by ldel-val          ``                     */
+/*   Updated: 2024/12/22 14:19:04 by ldel-val          ``                     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	gen_loading(t_data *data)
 {
-	t_2d_point pixel;
+	t_2d_point	pixel;
 
 	pixel.y = 0;
 	pixel.color.r = 255;
@@ -36,12 +36,13 @@ void	gen_loading(t_data *data)
 
 void	render_map(t_data *data)
 {
-	int i;
-	t_2d_line line;
+	int			i;
+	t_2d_line	line;
 
 	mlx_destroy_image(data->ctx, data->img);
-	data->img = mlx_new_image(data->ctx, data->win_w, data->win_h); 
-	data->img_addr = mlx_get_data_addr(data->img, &data->img_bpp, &data->img_l_len, &data->img_endian);
+	data->img = mlx_new_image(data->ctx, data->win_w, data->win_h);
+	data->img_addr = mlx_get_data_addr(data->img, &data->img_bpp,
+			&data->img_l_len, &data->img_endian);
 	i = 0;
 	while (i < data->list.size)
 	{
@@ -53,12 +54,12 @@ void	render_map(t_data *data)
 	mlx_put_image_to_window(data->ctx, data->win, data->img, 0, 0);
 }
 
-int safe_end(t_data *data)
+int	safe_close(t_data *data)
 {
 	if (data->img)
 		mlx_destroy_image(data->ctx, data->img);
 	data->img = NULL;
-	free_map(&data->map);	
+	free_map(&data->map);
 	free(data->list.lines);
 	if (data->win)
 		mlx_destroy_window(data->ctx, data->win);
@@ -70,49 +71,26 @@ int safe_end(t_data *data)
 	exit(0);
 }
 
-int	key_hook(int keycode, t_data *data)
+void	file_init(int argn, char **arg, t_data *data)
 {
-	if (keycode == 65307)
-		safe_end(data);
-	if (keycode == 65361)
-		data->cam_x += 5;
-	if (keycode == 65363)
-		data->cam_x -= 5;
-	if (keycode == 65362)
-		data->cam_y += 5;
-	if (keycode == 65364)
-		data->cam_y -= 5;
-	
-	ft_printf("%d\n", keycode);	
-	render_map(data);
-	return (0);
-}
-
-int	mouse_hook(int keycode, int x, int y, t_data *data)
-{
-	if (keycode == 4 && data->zoom < 1000)
-		data->zoom += 5;
-	if (keycode == 5 && data->zoom > 0)
-		data->zoom -= 5;
-	render_map(data);
-	return (0);
-}
-
-int main(int argn, char **arg)
-{
-	t_data	data;
-
 	if (argn < 2 || ft_strncmp(&arg[1][ft_strlen(arg[1]) - 4], ".fdf", 4))
 	{
 		ft_printf("\033[0;31mMissing or incorrect filename. Abort.\n");
-		return (1);
+		exit(1);
 	}
-	data.fd = open(arg[1], O_RDONLY);
-	if (data.fd == -1)
+	data->fd = open(arg[1], O_RDONLY);
+	if (data->fd == -1)
 	{
 		ft_printf("\033[0;31mCouldn't open file. Abort.\n");
-		return (1);
+		exit(1);
 	}
+}
+
+int	main(int argn, char **arg)
+{
+	t_data	data;
+
+	file_init(argn, arg, &data);
 	data.ctx = mlx_init();
 	data.win_w = 1920;
 	data.win_h = 1080;
@@ -120,14 +98,16 @@ int main(int argn, char **arg)
 	data.cam_x = 0;
 	data.cam_y = 0;
 	data.win = mlx_new_window(data.ctx, data.win_w, data.win_h, "FdF");
-	data.img = mlx_new_image(data.ctx, data.win_w, data.win_h); 
-	data.img_addr = mlx_get_data_addr(data.img, &data.img_bpp, &data.img_l_len, &data.img_endian);
+	data.img = mlx_new_image(data.ctx, data.win_w, data.win_h);
+	data.img_addr = mlx_get_data_addr(data.img, &data.img_bpp, &data.img_l_len,
+			&data.img_endian);
 	ft_printf("\033[0;33mReading map...\n");
 	data.map = parse_map(data.fd);
 	ft_printf("\033[0;33mListing lines...\n");
 	data.list = map_to_list(data.map);
+	ft_printf("\033[0;32mReady!\033[0m");
 	render_map(&data);
-	mlx_hook(data.win, 17, 0, safe_end, &data);
+	mlx_hook(data.win, 17, 0, safe_close, &data);
 	mlx_key_hook(data.win, key_hook, &data);
 	mlx_mouse_hook(data.win, mouse_hook, &data);
 	mlx_loop(data.ctx);
