@@ -1,5 +1,5 @@
 # FdF
-FdF is a project inside the 42 Common core. It consists on the developing of a topographic map visualizer using C and the (very limited) MiniLibX graphic library.
+FdF is a project inside the 42 Common core. It consists on the development of a topographic map visualizer using C and the (very limited) MiniLibX graphic library.
 
 ![Screenshot0](https://github.com/luna7111/fdf/blob/main/images/t1_map_render.png?raw=true "A screenshot of the program rendering a map with a sea and some mountains")
 
