@@ -6,7 +6,7 @@
 #    By: ldel-val <ldel-val@42madrid.com>          |  |           *            #
 #                                                  \  '.___.;       +          #
 #    Created: 2024/11/25 12:45:41 by ldel-val       '._  _.'   .        .      #
-#    Updated: 2024/12/25 20:50:54 by ldel-val          ``                      #
+#    Updated: 2024/12/25 21:12:59 by ldel-val          ``                      #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,7 +54,7 @@ clean:
 
 fclean:
 	$(MAKE) -C libft fclean
-	$(MAKE) -C libft clean
+	$(MAKE) -C mlx clean
 	$(RM) $(OBJ)
 	$(RM) $(NAME)
 
