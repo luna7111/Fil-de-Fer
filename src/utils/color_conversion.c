@@ -6,7 +6,7 @@
 /*   By: ldel-val <ldel-val@42madrid.com>          |  |           *           */
 /*                                                 \  '.___.;       +         */
 /*   Created: 2024/11/25 16:45:42 by ldel-val       '._  _.'   .        .     */
-/*   Updated: 2024/12/22 16:16:33 by ldel-val          ``                     */
+/*   Updated: 2024/12/25 20:18:13 by ldel-val          ``                     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,10 @@ int	check_hex(char *string)
 	while (string[i])
 	{
 		if (!ft_strchr(U_HEX, string[i]))
-			return (2);
+			return (0);
 		i ++;
 	}
-	return (0);
+	return (2);
 }
 
 t_rgba	hex_to_rgba(char *hex)
