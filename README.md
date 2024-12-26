@@ -15,7 +15,7 @@ FdF maps should be described in a plain text file where any point in the map is 
 
 ---
 
-And the color of a point is described in hexadecimal, separated with a comma from the point.
+And the color of a point is described in hexadecimal, separated with a comma next to the point.
 
 ### The map described as:
 
