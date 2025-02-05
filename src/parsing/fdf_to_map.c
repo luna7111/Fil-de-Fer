@@ -6,7 +6,7 @@
 /*   By: ldel-val <ldel-val@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 09:35:37 by ldel-val          #+#    #+#             */
-/*   Updated: 2024/12/22 12:02:25 by ldel-val          ``                     */
+/*   Updated: 2025/02/05 15:34:39 by ldel-val          ``                     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,12 @@ void	parse_line(t_map map, char *line, int y)
 	map.c_grid[y] = malloc(map.width * sizeof(t_rgba));
 	split_line = ft_split(line, ' ');
 	x = 0;
-	while (x < map.width && split_line[x])
+	while (x < map.width && split_line[x] && *split_line[x] != '\n')
 	{
 		parse_point(map, split_line[x], x, y);
 		x ++;
 	}
-	while (x < map.width)
+	while (x < map.width && *split_line[x] != '\n')
 	{
 		parse_point(map, "0", x, y);
 		x ++;

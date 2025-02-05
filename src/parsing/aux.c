@@ -6,7 +6,7 @@
 /*   By: ldel-val <ldel-val@42madrid.com>          |  |           *           */
 /*                                                 \  '.___.;       +         */
 /*   Created: 2024/12/05 17:26:26 by ldel-val       '._  _.'   .        .     */
-/*   Updated: 2024/12/05 18:14:41 by ldel-val          ``                     */
+/*   Updated: 2025/02/05 15:36:31 by ldel-val          ``                     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	get_map_width(char **map)
 
 	split_line = ft_split(map[0], ' ');
 	width = 0;
-	while (split_line[width])
+	while (split_line[width] && *split_line[width] != '\n')
 		width++;
 	free_split(split_line);
 	return (width);
