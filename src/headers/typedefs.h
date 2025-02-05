@@ -6,7 +6,7 @@
 /*   By: ldel-val <ldel-val@42madrid.com>          |  |           *           */
 /*                                                 \  '.___.;       +         */
 /*   Created: 2024/12/16 20:57:50 by ldel-val       '._  _.'   .        .     */
-/*   Updated: 2024/12/21 23:26:40 by ldel-val          ``                     */
+/*   Updated: 2025/02/05 17:19:15 by ldel-val          ``                     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ typedef struct s_rgba
 
 typedef struct s_3d_point
 {
-	int		x;
-	int		y;
-	int		z;
-	t_rgba	color;
+	float		x;
+	float		y;
+	float		z;
+	t_rgba		color;
 }	t_3d_point;
 
 typedef struct s_3d_line
@@ -80,6 +80,9 @@ typedef struct s_data
 	int				img_l_len;
 	int				img_endian;
 	unsigned int	zoom;
+	float			rot_x;
+	float			rot_y;
+	float			rot_z;
 	int				cam_x;
 	int				cam_y;
 	t_map			map;

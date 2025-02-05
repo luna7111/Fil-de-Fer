@@ -6,7 +6,7 @@
 /*   By: ldel-val <ldel-val@42madrid.com>          |  |           *           */
 /*                                                 \  '.___.;       +         */
 /*   Created: 2024/11/25 16:43:50 by ldel-val       '._  _.'   .        .     */
-/*   Updated: 2024/12/22 14:19:04 by ldel-val          ``                     */
+/*   Updated: 2025/02/05 17:18:55 by ldel-val          ``                     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ void	render_map(t_data *data)
 	i = 0;
 	while (i < data->list.size)
 	{
-		line.p1 = iso_project(data->list.lines[i].p1, *data);
-		line.p2 = iso_project(data->list.lines[i].p2, *data);
+		line.p1 = iso_project(rotate(data->list.lines[i].p1, *data), *data);
+		line.p2 = iso_project(rotate(data->list.lines[i].p2, *data), *data);
 		draw_line(data, line);
 		i++;
 	}
@@ -95,17 +95,17 @@ int	main(int argn, char **arg)
 	data.win_w = 1920;
 	data.win_h = 1080;
 	data.zoom = 100;
+	data.rot_z = 0;
+	data.rot_y = 0;
+	data.rot_x = 0;
 	data.cam_x = 0;
 	data.cam_y = 0;
 	data.win = mlx_new_window(data.ctx, data.win_w, data.win_h, "FdF");
 	data.img = mlx_new_image(data.ctx, data.win_w, data.win_h);
 	data.img_addr = mlx_get_data_addr(data.img, &data.img_bpp, &data.img_l_len,
 			&data.img_endian);
-	ft_printf("\033[0;33mReading map...\n");
 	data.map = parse_map(data.fd);
-	ft_printf("\033[0;33mListing lines...\n");
 	data.list = map_to_list(data.map);
-	ft_printf("\033[0;32mReady!\033[0m");
 	render_map(&data);
 	mlx_hook(data.win, 17, 0, safe_close, &data);
 	mlx_key_hook(data.win, key_hook, &data);
