@@ -6,7 +6,7 @@
 /*   By: ldel-val <ldel-val@student.42madrid.com>  |  |           *           */
 /*                                                 \  '.___.;       +         */
 /*   Created: 2024/12/22 13:18:56 by ldel-val       '._  _.'   .        .     */
-/*   Updated: 2025/02/05 17:04:52 by ldel-val          ``                     */
+/*   Updated: 2025/02/06 18:24:11 by ldel-val          ``                     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # define K_UP 65362
 # define K_RIGHT 65363
 # define K_DOWN 65364
+# define K_P 112
 # define K_X 120
 # define K_Y 121
 # define K_Z 122

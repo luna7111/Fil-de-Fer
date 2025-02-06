@@ -6,12 +6,15 @@
 /*   By: ldel-val <ldel-val@42madrid.com>          |  |           *           */
 /*                                                 \  '.___.;       +         */
 /*   Created: 2024/12/16 20:57:50 by ldel-val       '._  _.'   .        .     */
-/*   Updated: 2025/02/06 15:15:36 by ldel-val          ``                     */
+/*   Updated: 2025/02/06 19:21:57 by ldel-val          ``                     */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef TYPEDEFS_H
 # define TYPEDEFS_H
+
+# define ISOMETRIC 0
+# define PARALLEL 1
 
 typedef struct s_rgba
 {
@@ -58,7 +61,7 @@ typedef struct s_map
 {
 	int		width;
 	int		height;
-	float	**h_grid;
+	int	**h_grid;
 	t_rgba	**c_grid;
 }	t_map;
 
@@ -85,6 +88,7 @@ typedef struct s_data
 	float			rot_z;
 	int				cam_x;
 	int				cam_y;
+	int				projection;
 	t_map			map;
 	t_line_list		list;
 }	t_data;

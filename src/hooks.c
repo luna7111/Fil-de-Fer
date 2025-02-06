@@ -6,7 +6,7 @@
 /*   By: ldel-val <ldel-val@student.42madrid.com>  |  |           *           */
 /*                                                 \  '.___.;       +         */
 /*   Created: 2024/12/22 12:35:12 by ldel-val       '._  _.'   .        .     */
-/*   Updated: 2025/02/05 17:04:41 by ldel-val          ``                     */
+/*   Updated: 2025/02/06 19:00:03 by ldel-val          ``                     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ int	key_hook(int keycode, t_data *data)
 		data->rot_y = fmod(data->rot_y + 0.08, M_PI * 2);
 	if (keycode == K_Z)
 		data->rot_z = fmod(data->rot_z + 0.08, M_PI * 2);
-	printf("%d\n", keycode);
+	if (keycode == K_P)
+		data->projection = !data->projection;
 	render_map(data);
 	return (0);
 }
