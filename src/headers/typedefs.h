@@ -6,7 +6,7 @@
 /*   By: ldel-val <ldel-val@42madrid.com>          |  |           *           */
 /*                                                 \  '.___.;       +         */
 /*   Created: 2024/12/16 20:57:50 by ldel-val       '._  _.'   .        .     */
-/*   Updated: 2025/02/05 17:19:15 by ldel-val          ``                     */
+/*   Updated: 2025/02/06 15:15:36 by ldel-val          ``                     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ typedef struct s_map
 {
 	int		width;
 	int		height;
-	int		**h_grid;
+	float	**h_grid;
 	t_rgba	**c_grid;
 }	t_map;
 
