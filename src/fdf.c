@@ -6,7 +6,7 @@
 /*   By: ldel-val <ldel-val@42madrid.com>          |  |           *           */
 /*                                                 \  '.___.;       +         */
 /*   Created: 2024/11/25 16:43:50 by ldel-val       '._  _.'   .        .     */
-/*   Updated: 2025/02/05 17:18:55 by ldel-val          ``                     */
+/*   Updated: 2025/02/06 18:12:20 by ldel-val          ``                     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ void	render_map(t_data *data)
 	i = 0;
 	while (i < data->list.size)
 	{
-		line.p1 = iso_project(rotate(data->list.lines[i].p1, *data), *data);
-		line.p2 = iso_project(rotate(data->list.lines[i].p2, *data), *data);
+		line.p1 = project(rotate(data->list.lines[i].p1, *data), *data);
+		line.p2 = project(rotate(data->list.lines[i].p2, *data), *data);
 		draw_line(data, line);
 		i++;
 	}
@@ -100,6 +100,7 @@ int	main(int argn, char **arg)
 	data.rot_x = 0;
 	data.cam_x = 0;
 	data.cam_y = 0;
+	data.projection = ISOMETRIC;
 	data.win = mlx_new_window(data.ctx, data.win_w, data.win_h, "FdF");
 	data.img = mlx_new_image(data.ctx, data.win_w, data.win_h);
 	data.img_addr = mlx_get_data_addr(data.img, &data.img_bpp, &data.img_l_len,

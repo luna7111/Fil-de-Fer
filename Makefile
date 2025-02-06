@@ -6,7 +6,7 @@
 #    By: ldel-val <ldel-val@42madrid.com>          |  |           *            #
 #                                                  \  '.___.;       +          #
 #    Created: 2024/11/25 12:45:41 by ldel-val       '._  _.'   .        .      #
-#    Updated: 2025/02/05 15:59:45 by ldel-val          ``                      #
+#    Updated: 2025/02/06 19:11:31 by ldel-val          ``                      #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ LIB 	:=	-Lmlx -lmlx -lXext -lX11 -lm $(LIBFT)
 NAME 	:=	fdf
 SRC 	:=	src/fdf.c src/hooks.c\
 			src/parsing/fdf_to_map.c src/parsing/map_to_list.c src/parsing/aux.c\
-			src/projection/isometric.c\
+			src/projection/projection.c\
 			src/projection/rotation.c\
 			src/rendering/drawing.c\
 			src/utils/color_conversion.c src/utils/free_memory.c src/utils/misc.c

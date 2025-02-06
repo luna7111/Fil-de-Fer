@@ -6,7 +6,7 @@
 /*   By: ldel-val <ldel-val@42madrid.com>          |  |           *           */
 /*                                                 \  '.___.;       +         */
 /*   Created: 2024/11/25 16:45:42 by ldel-val       '._  _.'   .        .     */
-/*   Updated: 2024/12/25 20:18:13 by ldel-val          ``                     */
+/*   Updated: 2025/02/06 20:04:57 by ldel-val          ``                     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,8 @@ t_rgba	hex_to_rgba(char *hex)
 		hex += 2;
 	if (check_hex(hex) == 0 || !*hex)
 		return (hex_to_rgba("ffffff"));
-	base = ft_strdup(L_HEX);
+	if (check_hex(hex) == 1)
+		base = ft_strdup(L_HEX);
 	if (check_hex(hex) == 2)
 		base = ft_strdup(U_HEX);
 	bytewise = 0;
@@ -94,5 +95,6 @@ t_rgba	hex_to_rgba(char *hex)
 	color.b = bytewise & 0xFF;
 	color.g = (bytewise >> 8) & 0xFF;
 	color.r = (bytewise >> 16) & 0xFF;
+	free(base);
 	return (color);
 }

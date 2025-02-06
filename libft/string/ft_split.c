@@ -6,7 +6,7 @@
 /*   By: ldel-val <ldel-val@student.42madrid.com>  |  |           *           */
 /*                                                 \  '.___.;       +         */
 /*   Created: 2024/10/26 15:43:47 by ldel-val       '._  _.'   .        .     */
-/*   Updated: 2024/10/27 11:39:54 by ldel-val          ``                     */
+/*   Updated: 2025/02/06 17:40:27 by ldel-val          ``                     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ static size_t	ft_count_words(char const *s, char c)
 	size_t	word_count;
 	size_t	i;
 
+	if (s == NULL || *s == '\0')
+		return (0);
 	word_count = 0;
 	i = 0;
 	while (s[i])
