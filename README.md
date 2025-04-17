@@ -27,3 +27,11 @@ And the color of a point is described in hexadecimal, separated with a comma nex
 
 ## Features
 The program is able to render maps, rotate them around X Y and Z axis, toggle between an Axonometric/Isometric perspective and parallel perspective, zoom in and out and translate the rendered image in the screen x and y axis.
+
+## Usage
+To run the program just run it in a terminal using the map file path as an argument:
+```
+./fdf maps/luna/brazil.fdf
+```
+### Controls
+Zoom in and out with the scroll wheel, rotate each axix with X, Y and Z keys, toggle the perspective with the P key, translate the rendered image with the arrow keys.
