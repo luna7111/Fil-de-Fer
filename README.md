@@ -24,3 +24,6 @@ And the color of a point is described in hexadecimal, separated with a comma nex
 ### Should look like:
 
 ![Screenshot4](https://github.com/luna7111/fdf/blob/main/images/colored_grid_render_screenshot.png?raw=true "colored_grid.fdf render screenshot")
+
+## Features
+The program is able to render maps, rotate them around X Y and Z axis, toggle between an Axonometric/Isometric perspective and parallel perspective, zoom in and out and translate the rendered image in the screen x and y axis.
