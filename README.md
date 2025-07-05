@@ -34,4 +34,4 @@ To use the program just run it in a terminal using the map file path as an argum
 ./fdf maps/luna/brazil.fdf
 ```
 ### Controls
-Zoom in and out with the scroll wheel, rotate each axis with X, Y and Z keys, toggle the perspective with the P key, translate the rendered image with the arrow keys.
+Zoom in and out with the scroll wheel, rotate each axis with X, Y and Z keys, toggle the perspective with the P key, transpose the rendered image with the arrow keys.
