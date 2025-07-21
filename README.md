@@ -1,7 +1,7 @@
 # FdF
 FdF is a project inside the 42 Common core. It consists on the development of a topographic map visualizer using pure C and the (very limited) MiniLibX graphic library.
 
-![Screenshot0](https://github.com/luna7111/fdf/blob/main/images/t1_map_render.png?raw=true "A screenshot of the program rendering a map with a sea and some mountains")
+<img width="2306" height="1462" alt="image" src="https://github.com/user-attachments/assets/1e86fcfb-4dee-4ad7-b723-81167dc03979" />
 
 ## Files
 FdF maps should be described in a plain text file where any point in the map is written as a number, separated with spaces in a grid.
@@ -11,7 +11,7 @@ FdF maps should be described in a plain text file where any point in the map is 
 
 ### Should look something like:
 
-![Screenshot2](https://github.com/luna7111/fdf/blob/main/images/basic_grid_render_screenshot.png?raw=true "basic_grid.fdf render screenshot")
+<img width="2306" height="1462" alt="image" src="https://github.com/user-attachments/assets/3fce46d0-765f-425d-92ca-629d24ed0fa7" />
 
 ---
 
@@ -23,7 +23,7 @@ And the color of a point is described in hexadecimal, separated with a comma nex
 
 ### Should look like:
 
-![Screenshot4](https://github.com/luna7111/fdf/blob/main/images/colored_grid_render_screenshot.png?raw=true "colored_grid.fdf render screenshot")
+<img width="2306" height="1462" alt="image" src="https://github.com/user-attachments/assets/13e8e265-ccfc-4436-a806-d798e5600b88" />
 
 ## Features
 The program is able to render maps, rotate them around X Y and Z axis, toggle between an Axonometric/Isometric perspective and parallel perspective, zoom in and out and translate the rendered image in the screen x and y axis.
