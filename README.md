@@ -7,7 +7,7 @@ FdF is a project inside the 42 Common core. It consists on the development of a 
 FdF maps should be described in a plain text file where any point in the map is written as a number, separated with spaces in a grid.
 ### For example this map:
 
-![Screenshot1](https://github.com/luna7111/fdf/blob/main/images/basic_grid_file_screenshot.png?raw=true "basic_grid.fdf screenshot")
+<img width="984" height="723" alt="image" src="https://github.com/user-attachments/assets/82ab0bed-3d63-4c12-8f42-4f26c32ce944" />
 
 ### Should look something like:
 
@@ -19,7 +19,7 @@ And the color of a point is described in hexadecimal, separated with a comma nex
 
 ### The map described as:
 
-![Screenshot3](https://github.com/luna7111/fdf/blob/main/images/colored_grid_file_screenshot.png?raw=true "colored_grid.fdf screenshot")
+<img width="1053" height="724" alt="image" src="https://github.com/user-attachments/assets/2ff692c1-2fa4-4207-aa72-55e4a90fd6e0" />
 
 ### Should look like:
 
